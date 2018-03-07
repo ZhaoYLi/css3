@@ -1,7 +1,7 @@
 # css3
 css3魔法
-
 /***********************利用div正方形和伪类的圆形组合*****画心*************************/
+
 .heart{
 	position: absolute;
 	top: 50%;
@@ -26,11 +26,9 @@ css3魔法
 	top: -50px;
 	left: 0;
 }
-
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/heart.jpg)
-
-
 /***************利用border结合transparent特性实现*****气泡悬浮框******************/
+
 .bubbly{
 	/*居中定位*/
 	position: absolute;
@@ -58,11 +56,9 @@ css3魔法
 	border-left: 0;	/*去掉左边框*/
 	border-bottom: 0;/*去掉下边框*/
 }
-
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/bubbly.jpg)
-
-
 /***********************利用线性渐变实现*****切角*****************************/
+
 .cut{
 	position: absolute;
 	top: 50%;
@@ -89,9 +85,8 @@ css3魔法
 	 background-repeat: no-repeat;
 }
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/cut.jpg)
-
-
 /***********************利用径向渐变实现*****弧形切角*****************************/
+
 .arc{
 	position: absolute;
 	top: 50%;
@@ -115,9 +110,8 @@ css3魔法
 	background-repeat: no-repeat;
 }
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/arc.jpg)
-
-
 /***********************混合模式背景图**********************************/
+
 .colorful-background{
 	position: absolute;
 	top: 50%;
@@ -137,9 +131,8 @@ css3魔法
     /*定义了背景层的混合模式，screen:滤色模式*/
 }
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/colorful-background.jpg)
-
-
 /********************利用线性渐变、阴影、旋转实现太阳*********************************/
+
 .sun{
 	position: absolute;
 	top: 50%;
@@ -190,9 +183,8 @@ css3魔法
 		}
 }
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/sun.gif)
-
-
 /***********************利用border、box-shadow 实现*****彩虹*******************/
+
 .rainbow-container{
 	position: absolute;
 	top: 50%;
@@ -262,9 +254,8 @@ css3魔法
 	}
 }
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/rainbow.gif)
-
-
 /***********************利用border、transparent、旋转 实现*****五角星*******************/
+
 .five-star{
 	position: absolute;
 	top: 35%;
@@ -310,9 +301,8 @@ css3魔法
     transform: rotate(-36deg);
 }
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/five-star.jpg)
-
-
 /**************利用切角、渐变、伪类、旋转 实现*****折角*******************/
+
 .corner{
 	position: absolute;
 	top: 50%;
@@ -339,3 +329,12 @@ css3魔法
     box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
 }
 ![image](https://github.com/ZhaoYLi/css3/blob/master/img/corner.jpg)
+
+
+
+
+
+
+
+
+
