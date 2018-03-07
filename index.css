@@ -66,8 +66,119 @@
 	left: 50%;
 	transform:translate(-50%,-50%);
 	width: 200px;
-	background-color: #008D4C;
 	padding: 60px 20px;/*在div只设置宽度，没设置高度的时候，必须设置padding，否则div在视觉上会消失*/
+}
+.cut{
+	background:
+	 linear-gradient(135deg,transparent 15px, pink 0)
+	 top left,  /*135度方向，从透明线性渐变到粉色，透明占到15px,而粉色一直渐变到底*/
+	 linear-gradient(-135deg,transparent 15px, pink 0)
+	 top right,
+	 /*top right 即移动背景去相应的地方，background:top right 其实是
+	  * background-position:top right 的缩写*/
+	 linear-gradient(-45deg,transparent 15px, pink 0)
+	 bottom right,
+	 linear-gradient(45deg,transparent 15px, pink 0)
+	 bottom left;
+	 background-size: 50% 50%; 
+	 /*设置背景长和宽各为元素的一半。也就是如果你的背景是张图片，那么这张图片占
+	  * 你元素的1/4，然后会生成4个这样的图片*/
+	 background-repeat: no-repeat;
+}
+
+/***********************利用径向渐变实现*****弧形切角*****************************/
+.arc{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% 50%);
+	width: 200px;
+	height: 200px;
+}
+.arc{
+	background:
+	radial-gradient(circle at top left,transparent 15px,yellowgreen 0)
+	top left,
+	/*circle at top left,渐变路径:从左上圆形，(路径还有一个椭圆的参数:ellipse)*/ 
+	radial-gradient(circle at top right,transparent 15px,yellowgreen 0)
+	top right, 
+	radial-gradient(circle at bottom left,transparent 15px,yellowgreen 0)
+	bottom left, 
+	radial-gradient(circle at bottom right,transparent 15px,yellowgreen 0)
+	bottom right;
+	background-size:50% 50% ;
+	background-repeat: no-repeat;
+}
+
+/***********************混合模式背景图**********************************/
+.colorful-background{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% -50%);
+	width: 300px;
+	height: 200px;
+    text-align: center;
+    color: #fff;
+    font-size: 200%;
+    border-radius: .5em;
+    background: 
+       linear-gradient(limegreen,transparent),
+       linear-gradient(90deg,skyblue,transparent),
+       linear-gradient(-90deg,coral,transparent);
+    background-blend-mode: screen;
+    /*定义了背景层的混合模式，screen:滤色模式*/
+}
+
+/********************利用线性渐变、阴影、旋转实现太阳*********************************/
+.sun{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 200px;
+	height: 260px;
+	transform: translate(-50%,-50%);
+	background: #0BF;
+	border-radius: 5px;
+}
+.sun:before{
+	content: '';
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	border-radius: 50%;
+	background: rgba(255,238,68,1);
+	box-shadow: 0 0 0 15px rgba(255,255,0,0.2),0 0 15px #fff;
+	z-index: -10;	
+}
+.sun:after{
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 160px;
+	width: 160px;
+	transform: translate(-50%, -50%) rotate(30deg);
+	z-index:-100;
+	/*webkit内核的safari,chrome*/
+	background-image: 
+	-webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 100%),
+	-webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 100%);
+	background-size: 20px 100%, 100% 20px;/*双重背景*/
+	background-repeat: no-repeat;
+	background-position: center center,center center;
+	animation:sunRotate 10s linear infinite;
+}
+@keyframes sunRotate{
+	0%{
+		transform: translate(-50%, -50%) rotate(30deg);
+	  }
+	100%{
+		transform: translate(-50%, -50%) rotate(390deg);
+		}
 }
 
 /***********************利用border、box-shadow 实现*****彩虹*******************/
@@ -184,4 +295,31 @@
     border-bottom: 9.08px solid #B4D5FE;
     transform-origin: top center;
     transform: rotate(-36deg);
+}
+
+/**************利用切角、渐变、伪类、旋转 实现*****折角*******************/
+.corner{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 120px;
+	height: 120px;
+	padding: 40px;
+	background: linear-gradient(-150deg,transparent 1.5em,skyblue 0);
+	border-radius: 8px;
+}
+.corner:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	background:
+	  linear-gradient(to left bottom,transparent 50%,rgba(0,0,0,.2)0,rgba(0,0,0,.4)) 100% 0 no-repeat;
+    width: 1.73em;
+    height: 3em;
+    transform: translateY(-1.3em) rotate(-30deg);
+    transform-origin:bottom right;
+    border-bottom-left-radius:inherit;/*设置元素左下角样式*/
+    box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
 }
